@@ -21,7 +21,7 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
 
       // Checks if parsedCost is a valid number and is non-negative
       if (!isNaN(parsedCost) && parsedCost >= 0) {
-        addExpense({ id: idCounter, name, cost: parsedCost }) // Calls the addExpense function containing these props
+        addExpense({ id: idCounter, name, cost: parsedCost }) // Calls the adExpense function containing these props
         setIdCounter(idCounter + 1) // Unique id
         setName('') // name and cost states are reset to empty strings after submission
         setCost('')
@@ -59,7 +59,7 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
           style={{ width: '180px' }}
         />
       </div>
-      <button type="submit">Add coffee cost</button>{' '}
+      {/*<button type="submit">Add coffee cost</button>{' '}*/}
       {/*Submit button is added to the form for users to submit coffee costs*/}
     </form>
   )
