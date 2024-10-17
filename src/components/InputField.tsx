@@ -59,7 +59,7 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
           style={{ width: '180px' }}
         />
       </div>
-      {/*<button type="submit">Add coffee cost</button>{' '}*/}
+      <button type="submit">Add coffee cost</button>{' '}
       {/*Submit button is added to the form for users to submit coffee costs*/}
     </form>
   )
