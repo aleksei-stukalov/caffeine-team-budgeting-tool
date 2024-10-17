@@ -34,34 +34,50 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Coffee name:</label>
-        <input // Input field for the coffee name
-          id="name"
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          placeholder="Enter coffee (e.g., Flat white)"
-          required // Boolean attribute that specifies that the input field must be filled out before the form can be submitted
-          style={{ width: '180px' }} // Added a style element to allow for placeholder text
-        />
-      </div>
-      <div>
-        <label htmlFor="cost">Coffee cost:</label>
-        <input // Input field for the coffee cost
-          id="cost"
-          type="number"
-          value={cost}
-          onChange={(event) => setCost(event.target.value)}
-          placeholder="Enter coffee cost ($)"
-          required
-          style={{ width: '180px' }}
-        />
-      </div>
-      {/*<button type="submit">Add coffee cost</button>{' '}*/}
-      {/*Submit button is added to the form for users to submit coffee costs*/}
-    </form>
+    <div className="min-h-dvh bg-slate-50 grid place-items-center">
+      <form
+        className="w-96 p-6 border-2 border-solid border-gray-700 rounded bg-white shadow-lg "
+        onSubmit={handleSubmit}
+      >
+        <div>
+          <label htmlFor="name" className="block text-m font-medium mb-2">
+            Coffee name:
+          </label>
+          <input // Input field for the coffee name
+            id="name"
+            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            placeholder="Enter coffee (e.g., Flat white)"
+            required // Boolean attribute that specifies that the input field must be filled out before the form can be submitted
+            style={{ width: '320px' }} // Added a style element to allow for placeholder text
+            className="w-full border border-gray-300 rounded p-2"
+          />
+        </div>
+        <div>
+          <label htmlFor="cost" className="block text-m font-medium mb-2">
+            Coffee cost:
+          </label>
+          <input // Input field for the coffee cost
+            id="cost"
+            type="number"
+            value={cost}
+            onChange={(event) => setCost(event.target.value)}
+            placeholder="Enter coffee cost ($)"
+            required
+            style={{ width: '320px' }}
+            className="w-full border border-gray-300 rounded p-2"
+          />
+        </div>
+        <button
+          type="submit"
+          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Add coffee cost
+        </button>{' '}
+        {/*Submit button is added to the form for users to submit coffee costs*/}
+      </form>
+    </div>
   )
 }
 
