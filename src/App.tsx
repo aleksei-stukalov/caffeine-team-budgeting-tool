@@ -3,6 +3,7 @@ import PlusButton from './components/PlusButton.tsx'
 import InputField from './components/InputField.tsx'
 import RowEntry from './components/RowEntry.tsx'
 import DisplayTotal from './components/DisplayTotal.tsx'
+import ResetButton from './components/ResetButton.tsx'
 
 interface Entry {
   id: number
@@ -25,19 +26,33 @@ function App() {
     setActive(false)
   }
 
+  const removeLastExpense = () => {
+    const holder = [...entries]
+    holder.pop()
+    setEntries(holder)
+    setActive(false)
+  }
+
   return (
-    <div className="min-h-dvh w-96 flex flex-col justify-start items-stretch w-1/2 mx-auto py-12">
+    <div className="min-h-dvh w-96 flex flex-col justify-start items-stretch mx-auto py-12">
       <p className="text-2xl font-semibold mb-8 text-center">
         Coffee Expenses calculator
       </p>
       {entries.map((item) => (
         <RowEntry key={item.id} name={item.name} cost={item.cost} />
       ))}
-      <DisplayTotal expenses={entries} />
+      {entries.length > 0 && <DisplayTotal expenses={entries} />}
+
       {active === true ? (
         <InputField addExpense={addExpense} />
       ) : (
-        <PlusButton main onClick={handleClick} />
+        <>
+          <PlusButton main onClick={handleClick} />
+          <ResetButton
+            disabled={entries.length === 0}
+            onRemove={removeLastExpense}
+          />
+        </>
       )}
     </div>
   )

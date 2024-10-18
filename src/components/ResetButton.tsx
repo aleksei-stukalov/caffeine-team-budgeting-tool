@@ -20,7 +20,7 @@ const RemoveLastEntryButton: React.FunctionComponent<Props> = ({
   return (
     <button
       type="button"
-      className={`mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${
+      className={`mt-4 bg-red-500 hover:bg-red-700 text-slate-100 font-bold py-4 px-4 rounded ${
         disabled ? 'opacity-50 cursor-not-allowed' : ''
       }`} // Style adjustments for disabled state
       onClick={handleRemove}
