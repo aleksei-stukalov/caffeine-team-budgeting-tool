@@ -43,10 +43,6 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
         className="w-96 p-6 border-2 border-solid border-gray-700 rounded bg-white shadow-lg "
         onSubmit={handleSubmit}
       >
-         //  clears input allows you to cancel
-  const handleCancel = () => {
-    setName('')
-    setCost(' ')
         <div>
           <label htmlFor="name" className="block text-m font-medium mb-2">
             Coffee name:
@@ -95,7 +91,7 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
       </form>
     </div>
   )
-
+}
 
 export default InputField
 
