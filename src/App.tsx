@@ -19,7 +19,9 @@ function App() {
     setActive(true)
   }
 
-  const addExpense = (submittedData: Entry) => {
+  const addExpense = (submittedData: Entry | null) => {
+    if (submittedData === null) return setActive(false)
+
     const holder = [...entries]
     holder.push(submittedData)
     setEntries(holder)
@@ -38,9 +40,12 @@ function App() {
       <p className="text-2xl font-semibold mb-8 text-center">
         Coffee Expenses calculator
       </p>
-      {entries.map((item) => (
-        <RowEntry key={item.id} name={item.name} cost={item.cost} />
-      ))}
+      <div className="text-slate-200">
+        {entries.map((item) => (
+          <RowEntry key={item.id} name={item.name} cost={item.cost} />
+        ))}
+      </div>
+
       {entries.length > 0 && <DisplayTotal expenses={entries} />}
 
       {active === true ? (

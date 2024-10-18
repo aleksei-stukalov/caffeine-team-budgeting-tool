@@ -14,7 +14,12 @@ interface Props {
 const DisplayTotal: React.FunctionComponent<Props> = ({ expenses }) => {
   const totalCost = expenses.reduce((total, { cost }) => total + cost, 0) // Sum the costs directly - utilises the reduce method
 
-  return <h3>Total: ${(totalCost / 100).toFixed(2)}</h3> // Returns the total cost and converts from cents to dollars
+  return (
+    <p className="mt-4 mb-8 mr-3 text-right">
+      Total:{' '}
+      <span className="font-bold"> $ {(totalCost / 100).toFixed(2)}</span>
+    </p>
+  ) // Returns the total cost and converts from cents to dollars
 }
 
 // Export statement to otherfiles e.g., parent App.tsx

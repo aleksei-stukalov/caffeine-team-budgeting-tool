@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 
 // Typeface interface named Props
 interface Props {
-  addExpense: (expense: { id: number; name: string; cost: number }) => void
+  addExpense: (
+    expense: { id: number; name: string; cost: number } | null
+  ) => void
 }
 
 // Functional component with name, cost and idCounter state variables
@@ -33,11 +35,10 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
     }
   }
 
+  const handleCancel = () => addExpense(null)
+
   return (
-    <form
-      className="p-6 border-2 border-solid border-slate-500 rounded-md bg-white shadow-lg "
-      onSubmit={handleSubmit}
-    >
+    <form className="p-6 border-2 border-solid border-slate-500 rounded-md bg-white shadow-lg ">
       <div>
         <label htmlFor="name" className="block text-m font-medium mb-2">
           Coffee name:
@@ -54,7 +55,7 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
         />
       </div>
       <div>
-        <label htmlFor="cost" className="block text-m font-medium mb-2">
+        <label htmlFor="cost" className="block text-m font-medium mt-4 mb-2">
           Coffee cost:
         </label>
         <input // Input field for the coffee cost
@@ -68,31 +69,24 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
           className="w-full border border-gray-300 rounded p-2"
         />
       </div>
-      <button
-        type="submit"
-        className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Add coffee cost
-      </button>{' '}
-      {/*Submit button is added to the form for users to submit coffee costs*/}
+      <div className="flex gap-2 mt-4">
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          className="flex-1 bg-blue-500 hover:bg-blue-700 text-slate-100 font-bold py-2 rounded"
+        >
+          Add entry
+        </button>
+        <button
+          type="button"
+          onClick={handleCancel}
+          className="flex-1 bg-red-500 hover:bg-red-700 text-slate-100 font-bold py-2 rounded"
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   )
 }
 
 export default InputField
-
-// const coffeeList = [
-//   { name: 'short black', cost: null },
-//   { name: 'long black', cost: null },
-//   { name: 'americano', cost: null },
-//   { name: 'macchiato', cost: null },
-//   { name: 'cortado', cost: null },
-//   { name: 'piccolo', cost: null },
-//   { name: 'flat white', cost: null },
-//   { name: 'cappuccino', cost: null },
-//   { name: 'latte', cost: null },
-//   { name: 'chai latte', cost: null },
-//   { name: 'mochaccino', cost: null },
-//   { name: 'extra shot', cost: null },
-//   { name: 'alternative milk', cost: null },
-// ]
