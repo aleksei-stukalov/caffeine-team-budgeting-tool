@@ -76,6 +76,13 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
           Add coffee cost
         </button>{' '}
         {/*Submit button is added to the form for users to submit coffee costs*/}
+        <button
+          type="submit"
+          className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-14 rounded"
+        >
+          Cancel
+        </button>{' '}
+        {/*cancel button, that allows user to cancel entering data*/}
       </form>
     </div>
   )
