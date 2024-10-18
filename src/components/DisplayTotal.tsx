@@ -17,5 +17,5 @@ const DisplayTotal: React.FunctionComponent<Props> = ({ expenses }) => {
   return <h3>Total: ${(totalCost / 100).toFixed(2)}</h3> // Returns the total cost and converts from cents to dollars
 }
 
-// Export statement to otherfiles e.g., parent App.tsx
+// Export statement to other files e.g., parent App.tsx
 export default DisplayTotal
