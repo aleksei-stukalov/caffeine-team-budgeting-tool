@@ -3,6 +3,7 @@ import PlusButton from './components/PlusButton.tsx'
 import InputField from './components/InputField.tsx'
 import RowEntry from './components/RowEntry.tsx'
 import DisplayTotal from './components/DisplayTotal.tsx'
+import { AltProducts } from './components/AltProducts.tsx'
 
 interface Entry {
   id: number
@@ -34,6 +35,7 @@ function App() {
         <RowEntry key={item.id} name={item.name} cost={item.cost} />
       ))}
       <DisplayTotal expenses={entries} />
+      <AltProducts expenses={entries} />
       {active === true ? (
         <InputField addExpense={addExpense} />
       ) : (
