@@ -1,6 +1,6 @@
 import React from 'react'
 
-// Interface called Expense that sets out teh coffee cost in cents
+// Interface called Expense that sets out the coffee cost in cents
 interface Expense {
   cost: number
 }
