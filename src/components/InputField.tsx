@@ -32,13 +32,21 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
       alert('Please enter a coffee name and cost') // Name or cost is missing, an alert to enter both values
     }
   }
-
+  //  clears input allows you to cancel
+  const handleCancel = () => {
+    setName('')
+    setCost(' ')
+  }
   return (
     <div className="min-h-dvh bg-slate-50 grid place-items-center">
       <form
         className="w-96 p-6 border-2 border-solid border-gray-700 rounded bg-white shadow-lg "
         onSubmit={handleSubmit}
       >
+         //  clears input allows you to cancel
+  const handleCancel = () => {
+    setName('')
+    setCost(' ')
         <div>
           <label htmlFor="name" className="block text-m font-medium mb-2">
             Coffee name:
@@ -73,11 +81,12 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
           type="submit"
           className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
-          Add coffee cost
+          Add Coffee Cost
         </button>{' '}
         {/*Submit button is added to the form for users to submit coffee costs*/}
         <button
-          type="submit"
+          type="button"
+          onClick={handleCancel}
           className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-14 rounded"
         >
           Cancel
@@ -86,7 +95,7 @@ const InputField: React.FunctionComponent<Props> = ({ addExpense }) => {
       </form>
     </div>
   )
-}
+
 
 export default InputField
 
