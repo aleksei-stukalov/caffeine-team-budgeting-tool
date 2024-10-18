@@ -4,6 +4,7 @@ import InputField from './components/InputField.tsx'
 import RowEntry from './components/RowEntry.tsx'
 import DisplayTotal from './components/DisplayTotal.tsx'
 import ResetButton from './components/ResetButton.tsx'
+import { AltProducts } from './components/AltProducts.tsx'
 
 interface Entry {
   id: number
@@ -46,7 +47,14 @@ function App() {
         ))}
       </div>
 
-      {entries.length > 0 && <DisplayTotal expenses={entries} />}
+      {entries.length > 0 && (
+        <>
+          <DisplayTotal expenses={entries} />
+          <div className="mb-8">
+            <AltProducts expenses={entries} />
+          </div>
+        </>
+      )}
 
       {active === true ? (
         <InputField addExpense={addExpense} />

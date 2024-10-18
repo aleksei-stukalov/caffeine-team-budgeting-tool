@@ -24,3 +24,5 @@ const DisplayTotal: React.FunctionComponent<Props> = ({ expenses }) => {
 
 // Export statement to otherfiles e.g., parent App.tsx
 export default DisplayTotal
+
+
