@@ -25,18 +25,14 @@ function App() {
   }
 
   return (
-    <div className="min-h-dvh flex flex-col justify-start items-center container mx-auto py-12">
+    <div className="min-h-dvh w-96 flex flex-col justify-start items-stretch container mx-auto py-12">
       {entries.map((item) => (
         <RowEntry key={item.id} name={item.name} cost={item.cost} />
       ))}
       {active === true ? (
         <InputField addExpense={addExpense} />
       ) : (
-        <PlusButton
-          main
-          onClick={handleClick}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-        />
+        <PlusButton main onClick={handleClick} />
       )}
     </div>
   )
