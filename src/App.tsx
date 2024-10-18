@@ -52,7 +52,7 @@ function App() {
         <InputField addExpense={addExpense} />
       ) : (
         <>
-          <PlusButton main onClick={handleClick} />
+          <PlusButton onClick={handleClick} />
           <ResetButton
             disabled={entries.length === 0}
             onRemove={removeLastExpense}
